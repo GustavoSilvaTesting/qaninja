@@ -3,7 +3,7 @@ import SignupFactory from '../factories/SignupFactory';
 import signupFactory from '../factories/SignupFactory';
 import SignupPage from '../pages/SignupPage';
 
-describe('Signup', ()=> {
+describe('Signup', () => {
 
     // beforeEach( function() {
     //     cy.fixture('deliver').then((d)=> {
@@ -11,8 +11,8 @@ describe('Signup', ()=> {
     //     })
     // })
 
-    it('User should be deliver', function() {     
-        
+    it('User should be deliver', function () {
+
         var deliver = signupFactory.deliver()
 
         signup.go()
@@ -23,39 +23,53 @@ describe('Signup', ()=> {
         signup.modalContentShoulBe(expectedMessage)
     })
 
-    it('invalid document', function() {   
-        
+    it('invalid document', function () {
+
         var deliver = signupFactory.deliver()
 
         deliver.cpf = '000100010cfd'
-        
+
         signup.go()
         signup.fillForm(deliver)
         signup.submit()
-        signup.alertMessageShoulBe('Oops! CPF inválido')        
-    }) 
-    
-    it('invalid email', function() {   
-        
+        signup.alertMessageShoulBe('Oops! CPF inválido')
+    })
+
+    it('invalid email', function () {
+
         var deliver = signupFactory.deliver()
 
         deliver.email = 'teste.com.br'
-        
+
         signup.go()
         signup.fillForm(deliver)
         signup.submit()
-        signup.alertMessageShoulBe('Oops! Email com formato inválido.')        
+        signup.alertMessageShoulBe('Oops! Email com formato inválido.')
     })
 
-    it.only('Required fields', function() {
-        signup.go()
-        signup.submit()
-        signup.alertMessageShoulBe('É necessário informar o nome')        
-        signup.alertMessageShoulBe('É necessário informar o CPF')        
-        signup.alertMessageShoulBe('É necessário informar o email')        
-        signup.alertMessageShoulBe('É necessário informar o CEP')        
-        signup.alertMessageShoulBe('É necessário informar o número do endereço')        
-        signup.alertMessageShoulBe('Selecione o método de entrega')        
-        signup.alertMessageShoulBe('Adicione uma foto da sua CNH')        
+    context('Required fields', function () {
+
+        const messages = [
+            { field: 'name', output: 'É necessário informar o nome' },
+            { field: 'cpf', output: 'É necessário informar o CPF' },
+            { field: 'email', output: 'É necessário informar o email' },
+            { field: 'postalcode', output: 'É necessário informar o CEP' },
+            { field: 'number', output: 'É necessário informar o número do endereço' },
+            { field: 'delivery_method', output: 'Selecione o método de entrega' },
+            { field: 'cnh', output: 'Adicione uma foto da sua CNH' }
+        ]
+
+        before( function() {
+            signup.go()
+            signup.submit()
+        })
+
+        messages.forEach(function(msg) {
+            it(`${msg.field} is required`, function() {
+                signup.alertMessageShoulBe(msg.output)
+            })
+        })
+
     })
+
 })
