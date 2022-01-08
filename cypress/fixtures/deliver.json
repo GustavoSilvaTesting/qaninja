@@ -1,0 +1,50 @@
+{
+    "signup":   {
+        "name": "Gustavo Silva",
+        "cpf": "19321515240",
+        "email": "GustavoSilva@gmail.com",
+        "whatsapp": "85999999999",            
+        "address": {
+            "postalcode":    "60730120",
+            "street":    "Rua Dom Henrique",
+            "number": "395",
+            "details":    "Próximo ao Aconchemax",
+            "district":    "Vila Peri",
+            "city_state":  "Fortaleza/CE"
+        },
+        "delivery_method": "Moto", 
+        "cnh":    "cnh-digital.jpg"
+    },
+    "cpf_inv": {
+        "name": "Patrick",
+        "cpf": "19321515240xx",
+        "email": "GustavoSilva@gmail.com",
+        "whatsapp": "85999999999",            
+        "address": {
+            "postalcode":    "60730120",
+            "street":    "Rua Dom Henrique",
+            "number": "395",
+            "details":    "Próximo ao Aconchemax",
+            "district":    "Vila Peri",
+            "city_state":  "Fortaleza/CE"
+        },
+        "delivery_method": "Moto", 
+        "cnh":    "cnh-digital.jpg"
+    },
+    "email_inv":   {
+        "name": "Gustavo Silva",
+        "cpf": "19321515240",
+        "email": "GustavoSilva.gmail.com",
+        "whatsapp": "85999999999",            
+        "address": {
+            "postalcode":    "60730120",
+            "street":    "Rua Dom Henrique",
+            "number": "395",
+            "details":    "Próximo ao Aconchemax",
+            "district":    "Vila Peri",
+            "city_state":  "Fortaleza/CE"
+        },
+        "delivery_method": "Moto", 
+        "cnh":    "cnh-digital.jpg"
+    }
+}
